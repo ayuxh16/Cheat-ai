@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interview AI Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- Header -->
+    <header class="header">
+      <h1>Interview AI Assistant</h1>
+      <p>Listens continuously — answers every question in bullet points</p>
+    </header>
+
+    <!-- API Key Input -->
+    <div class="api-row">
+      <label for="apiKey">Groq API Key</label>
+      <input
+        type="password"
+        id="apiKey"
+        placeholder="gsk_..."
+        autocomplete="off"
+      />
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button id="startBtn" onclick="toggleListening()">
+        <span class="dot"></span>
+        <span id="btnText">Start Listening</span>
+      </button>
+      <span class="status-badge" id="statusBadge">Idle</span>
+      <button class="clear-btn" onclick="clearAnswers()">Clear All</button>
+    </div>
+
+    <!-- Live Transcript -->
+    <div class="section-label">Live Transcript</div>
+    <div class="transcript-box" id="transcriptBox">
+      Detected speech will appear here...
+    </div>
+
+    <!-- Answer Feed -->
+    <div class="section-label" style="margin-top: 1.5rem;">Answers</div>
+    <div class="answer-area" id="answerArea">
+      <div class="empty-state">
+        <div class="icon">🎤</div>
+        <p>Start listening, then ask a question aloud</p>
+        <small>AI answers stream here in real time</small>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts — order matters -->
+  <script src="ai.js"></script>
+  <script src="speech.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
